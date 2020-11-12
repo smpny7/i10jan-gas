@@ -119,7 +119,7 @@ function doPost(e) {
 
 function insertNewData(e) {
   SpreadSheetsSQL.open(spreadsheets_id, spreadsheets_sheet_data).insertRows([
-    { id: '=ROW()-1', member_key: '=QUERY(member!A:C, "where A = ' + htmlspecialchars(e.parameter.member_key) + '", 0)', body_temperature: htmlspecialchars(e.parameter.body_temperature), physical_condition: htmlspecialchars(e.parameter.physical_condition), stifling: htmlspecialchars(e.parameter.stifling), fatigue: htmlspecialchars(e.parameter.fatigue), remarks: htmlspecialchars(e.parameter.remarks), in_time: new Date() }
+    { id: '=ROW()-1', member_key: '=QUERY(member!A:C, "where A = \'' + htmlspecialchars(e.parameter.member_key) + '\'", 0)', body_temperature: htmlspecialchars(e.parameter.body_temperature), physical_condition: htmlspecialchars(e.parameter.physical_condition), stifling: htmlspecialchars(e.parameter.stifling), fatigue: htmlspecialchars(e.parameter.fatigue), remarks: htmlspecialchars(e.parameter.remarks), in_time: new Date() }
   ]);
 
   setInRoom(htmlspecialchars(e.parameter.member_key));
